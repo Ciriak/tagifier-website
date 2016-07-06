@@ -1,6 +1,3 @@
-var electronVersion = "1.0.1";
-
-
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -76,7 +73,6 @@ gulp.task('watch', function () {
   gulp.watch('./src/style/**/*.scss', ['sass']);
   gulp.watch('./src/**/*.html', ['html']);
   gulp.watch('./src/**/*.js', ['scripts']);
-  gulp.watch('./src/*', ['copy-electron-components']);
 });
 
 gulp.task('prepare-dev-env', gulpsync.sync([
