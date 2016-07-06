@@ -1,0 +1,19 @@
+{
+  "name": "tagifier-website",
+  "version": "1.0.0",
+  "description": "Website for promoting Tagifier",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cyriaqu3/tagifier-website.git"
+  },
+  "author": "Cyriaque DELAUNAY",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cyriaqu3/tagifier-website/issues"
+  },
+  "homepage": "https://github.com/Cyriaqu3/tagifier-website#readme"
+}

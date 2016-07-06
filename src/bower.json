@@ -1,0 +1,25 @@
+{
+  "name": "tagifier-website",
+  "description": "Website for promoting Tagifier",
+  "main": "index.html",
+  "keywords": [
+    "tagifier",
+    "website"
+  ],
+  "authors": [
+    "Cyriaque DELAUNAY"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0"
+  }
+}
