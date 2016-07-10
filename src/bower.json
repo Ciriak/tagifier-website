@@ -20,6 +20,12 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.0.0"
+    "jquery": "^3.0.0",
+    "bootstrap": "^3.3.6",
+    "mdi": "^1.6.50",
+    "animate.css": "^3.5.2"
+  },
+  "resolutions": {
+    "jquery": "1.9.1 - 2"
   }
 }

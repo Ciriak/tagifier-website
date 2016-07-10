@@ -8,18 +8,9 @@ var install = require("gulp-install");
 var del = require('del');
 var imageop = require('gulp-image-optimization');
 var ngmin = require('gulp-ngmin');
-var nodemon = require('gulp-nodemon');
 var bower = require('gulp-bower');
 var plumber = require('gulp-plumber');  //prevent watch crash
 var gulpsync = require('gulp-sync')(gulp);
-
-gulp.task('server', function () {
-  nodemon({
-    script: 'app.js'
-  , ext: 'js html css scss'
-  , env: { 'NODE_ENV': 'development' }
-  })
-});
 
 gulp.task('sass', function () {
   return gulp.src('./src/style/**/*.scss')
