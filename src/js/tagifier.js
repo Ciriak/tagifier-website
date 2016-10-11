@@ -4,18 +4,27 @@ var t = $("#dl-url");
 
 //retreive links for the last release
 $.get( apiUri, function( data ) {
+  $(".ver-num").text("(v"+data.tag_name+")");
   var platform = checkNav();
   if(!data.assets[platform.assetIndex]){
     data.assets[platform.assetIndex] = {
       browser_download_url: "#"
     };
   }
+
+  //if unknown os
+  if(platform.icon == null){
+    $(".known-os").hide();
+  }
+
   var setupUrl = data.assets[1].browser_download_url;
   t.find("i").addClass("mdi-"+platform.icon);
-  t.attr("href", data.assets[platform.assetIndex].browser_download_url);
-  t.attr("target", "_blank");
+  if(platform.assetIndex != null){
+    t.attr("href", data.assets[platform.assetIndex].browser_download_url);
+    t.attr("target", "_blank");
+    t.fadeTo(1.0, 500);
+  }
   t.attr("title", platform.label);
-  t.fadeTo(1.0, 500);
   //enable tooltip
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -23,19 +32,32 @@ $.get( apiUri, function( data ) {
 });
 
 function checkNav() {
-  var r;
-  if(navigator.platform.indexOf('Mac') > -1){
+  var r = {
+    icon: null,
+    assetIndex: null,
+    label: null
+  }
+  if(navigator.appVersion.indexOf('Mac') > -1){
     r = {
       icon: "apple",
-      label: "For OSX",
-      assetIndex: 4
+      //label: "For OSX",
+      label: "Available soon...",
+      assetIndex: null
     };
   }
-  if(navigator.platform.indexOf('Win') > -1){
+  if(navigator.appVersion.indexOf('Win') > -1){
     r = {
       icon: "windows",
       label: "For Windows 64 bits",
       assetIndex: 1
+    };
+  }
+  if(navigator.appVersion.indexOf("Linux") > -1){
+    r = {
+      icon: "linux",
+      //label: "For Linux",
+      label: "Available soon...",
+      assetIndex: null
     };
   }
   return r;
