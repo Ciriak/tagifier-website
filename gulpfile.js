@@ -6,7 +6,6 @@ var htmlmin = require('gulp-htmlmin');
 var jsonminify = require('gulp-jsonminify');
 var install = require("gulp-install");
 var del = require('del');
-var imageop = require('gulp-image-optimization');
 var ngmin = require('gulp-ngmin');
 var bower = require('gulp-bower');
 var plumber = require('gulp-plumber');  //prevent watch crash
@@ -41,11 +40,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('images', function(cb) {
-    gulp.src(['src/**/*.png','src/**/*.jpg','src/**/*.gif','src/**/*.jpeg','src/**/*.svg','src/**/*.ico']).pipe(imageop({
-        optimizationLevel: 5,
-        progressive: true,
-        interlaced: true
-    })).pipe(gulp.dest('./dist')).on('end', cb).on('error', cb);
+    gulp.src(['src/**/*.png','src/**/*.jpg','src/**/*.gif','src/**/*.jpeg','src/**/*.svg','src/**/*.ico']).pipe(gulp.dest('./dist')).on('end', cb).on('error', cb);
 });
 
 gulp.task('copy-dependencies', function() {
